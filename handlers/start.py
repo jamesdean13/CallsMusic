@@ -9,22 +9,26 @@ async def start(_, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
 
-I am SU Music Player, an open-source bot that lets you play music in your Telegram groups.
-
+I am Swifties Music Bot, a bot that lets you play music in @Swiftiesworld voice chat.
+This bot is created by @TayLife. 
 Use the buttons below to know more about me.""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "⚒ Source code", url="https://t.me/SuMusicPlayer"
+                        "⚒ Creator", url="https://t.me/taylife"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "💬 Group", url="https://t.me/su_Chats"
+                        "💬 Group", url="https://t.me/swiftiesworld"
                     ),
                     InlineKeyboardButton(
-                        "Channel 🔈", url="https://t.me/su_Bots"
+                        "Channel 🔈", url="https://t.me/taylorswift13fanpage"
+                    ),
+                    InlineKeyboardButton(
+                        "Discography 😈", url="https://t.me/taylorflac"
+
                     )
                 ]
             ]
