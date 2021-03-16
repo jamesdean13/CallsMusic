@@ -1,14 +1,15 @@
-from pyrogram import Client
+from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
-from helpers.filters import command, other_filters, other_filters2
 
-
-@Client.on_message(command("start") & other_filters)
-async def start(_, message: Message):
+@Client.on_message(
+    filters.command("start")
+    & filters.private
+    & ~ filters.edited
+)
+async def start_(client: Client, message: Message):
     await message.reply_text(
         f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
-
 I am Swifties Music Bot, a bot that lets you play music in @Swiftiesworld voice chat.
 This bot is created by @TayLife. 
 Use the buttons below to know more about me.""",
@@ -36,8 +37,12 @@ Use the buttons below to know more about me.""",
     )
 
 
-@Client.on_message(command("start") & other_filters2)
-async def start2(_, message: Message):
+@Client.on_message(
+    filters.command("start")
+    & filters.group
+    & ~ filters.edited
+)
+async def start(client: Client, message: Message):
     await message.reply_text(
         "💁🏻‍♂️ Do you want to search for a YouTube video?",
         reply_markup=InlineKeyboardMarkup(
